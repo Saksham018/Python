@@ -7,14 +7,14 @@ con.close()
 try:
     con = sqlite3.connect('Students.db')
     cursor = con.cursor()
-    query = 'create table student1(name varchar(20),marks number(3))'
+    query = 'create table student12(name varchar(20),marks number(3))'
     print('Created')
     cursor.execute(query)
     for i in range(10):
-        print("Enter name " , i , " and marks " , i)
+        print("Enter name",i,"and marks " , i)
         n = input()
         m = int(input())
-        query = 'insert into student1(name,marks) values(?,?)'
+        query = 'insert into student12(name,marks) values(?,?)'
         cursor.execute(query,(n,m))
     con.commit()
 except sqlite3.DatabaseError as e:
@@ -30,7 +30,7 @@ finally:
 try:
     con=sqlite3.connect('Students.db')
     cur = con.cursor()
-    query = 'Select * from student1 where marks>80'
+    query = 'Select * from student12 where marks>80'
     cur.execute(query)
     data = cur.fetchall()
     for row in data:
